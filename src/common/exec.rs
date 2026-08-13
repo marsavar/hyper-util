@@ -31,7 +31,9 @@ impl Exec {
     {
         match *self {
             Exec::Executor(ref e) => {
-                e.execute(Box::pin(fut));
+                tracing::dispatcher::with_default(&tracing::Dispatch::none(), || {
+                    e.execute(Box::pin(fut));
+                });
             }
         }
     }
