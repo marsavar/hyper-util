@@ -1,6 +1,5 @@
 #![allow(missing_docs)]
 
-#[cfg(feature = "client-legacy")]
 pub(crate) mod exec;
 #[cfg(feature = "client-legacy")]
 mod lazy;
